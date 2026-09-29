@@ -1,0 +1,65 @@
+{
+  "name": "Brutalist",
+  "primaryColor": "#FFD23F",
+  "colors": {
+    "buttonPrimaryText": "#000000",
+    "buttonPrimaryBorder": "#000000",
+    "buttonSecondaryText": "#000000",
+    "buttonSecondaryBackground": "#FFFFFF",
+    "buttonSecondaryBorder": "#000000",
+    "cardBackground": "#FFFFFF",
+    "cardBorder": "#000000",
+    "inputBackground": "#FFFFFF",
+    "inputBorder": "#000000",
+    "link": "#0047FF",
+    "headingText": "#000000",
+    "bodyText": "#111111",
+    "containerBackground": "#FFFDF5",
+    "containerBorder": "#000000",
+    "divider": "#000000",
+    "icon": "#000000",
+    "loader": "#000000",
+    "positive": "#00A36C",
+    "critical": "#FF3B00",
+    "information": "#0047FF",
+    "hover": "#FFE98A",
+    "focus": "#0047FF"
+  },
+  "pageBackground": {
+    "backgroundColor": "#FF90E8"
+  },
+  "typography": {
+    "text": {
+      "faces": [
+        {
+          "url": "https://cdn.jsdelivr.net/npm/@fontsource/space-grotesk@5/files/space-grotesk-latin-400-normal.woff2",
+          "weight": 400
+        },
+        {
+          "url": "https://cdn.jsdelivr.net/npm/@fontsource/space-grotesk@5/files/space-grotesk-latin-700-normal.woff2",
+          "weight": 700
+        }
+      ]
+    }
+  },
+  "container": {
+    "contentAlignment": "left",
+    "logoAlignment": "left",
+    "logoPosition": "inside"
+  },
+  "borders": {
+    "buttonBorderRadius": 0.1,
+    "buttonBorderWidth": 3,
+    "cardBorderRadius": 0.1,
+    "cardBorderWidth": 3,
+    "inputBorderRadius": 0.1,
+    "inputBorderWidth": 3,
+    "containerBorderRadius": 0.1
+  },
+  "links": {
+    "underline": true
+  },
+  "shadows": {
+    "enabled": false
+  }
+}

@@ -1,0 +1,324 @@
+<html>
+  <head>
+    <authsignal-head></authsignal-head>
+    <style>
+      /* Custom templates don't paint the page itself, so fill it with the theme's page color */
+      html,
+      body {
+        min-height: 100%;
+        background-color: var(--page-background-color);
+      }
+
+      /* The two bevels everything in Windows 98 is made of */
+      :root {
+        --raised: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px #808080, inset 2px 2px #dfdfdf;
+        --pressed: inset 1px 1px #0a0a0a, inset -1px -1px #fff, inset 2px 2px #808080, inset -2px -2px #dfdfdf;
+      }
+
+      /* The window: grey, square, with the classic two-tone raised bevel */
+      #widget-container {
+        padding-top: 72px !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #dfdfdf, inset -2px -2px #808080, inset 2px 2px #fff !important;
+      }
+
+      /* Title bar */
+      #widget-container::before {
+        content: "Authsignal Verification";
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        right: 3px;
+        height: 30px;
+        padding: 0 8px;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(90deg, #000080, #1084d0);
+        color: #fff;
+        font-weight: 700;
+        font-size: 16px;
+      }
+
+      /* Close button in the title bar (decorative; the real exit is the Quit link) */
+      #widget-container::after {
+        content: "\2715";
+        position: absolute;
+        top: 8px;
+        right: 9px;
+        width: 22px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #c0c0c0;
+        color: #000;
+        font-size: 12px;
+        font-weight: 700;
+        box-shadow: var(--raised);
+      }
+
+      #widget-container h1 {
+        font-weight: 700;
+      }
+
+      /* Raised buttons that press in when clicked */
+      .Button {
+        border-radius: 0 !important;
+        box-shadow: var(--raised);
+      }
+      .Button--primary:hover {
+        background-color: #c0c0c0;
+      }
+      .Button:active {
+        box-shadow: var(--pressed);
+      }
+
+      /* Method cards look like big raised buttons */
+      #widget-container .card-shadow > div {
+        border-radius: 0 !important;
+        box-shadow: var(--raised) !important;
+      }
+      #widget-container .card-shadow:active > div {
+        box-shadow: var(--pressed) !important;
+      }
+
+      /* Sunken text fields */
+      #widget-container input {
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: inset -1px -1px #fff, inset 1px 1px #808080, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a;
+      }
+
+      /* Taskbar */
+      .w98-taskbar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 20;
+        height: 36px;
+        padding: 3px 4px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: #c0c0c0;
+        box-shadow: inset 0 1px #dfdfdf, inset 0 2px #fff;
+        font-size: 15px;
+        color: #000;
+      }
+      .w98-taskbar span {
+        height: 28px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 0 8px;
+      }
+      .w98-start {
+        font-weight: 700;
+        box-shadow: var(--raised);
+      }
+      .w98-start i {
+        width: 16px;
+        height: 16px;
+        background:
+          linear-gradient(#f01e1e, #f01e1e) 0 0 / 7px 7px no-repeat,
+          linear-gradient(#20b020, #20b020) 9px 0 / 7px 7px no-repeat,
+          linear-gradient(#1e5cf0, #1e5cf0) 0 9px / 7px 7px no-repeat,
+          linear-gradient(#f5c400, #f5c400) 9px 9px / 7px 7px no-repeat;
+      }
+      .w98-task {
+        min-width: 200px;
+        font-weight: 700;
+        background: repeating-conic-gradient(#c0c0c0 0% 25%, #fff 0% 50%) 0 0 / 2px 2px;
+        box-shadow: var(--pressed);
+      }
+      .w98-clock {
+        margin-left: auto;
+        box-shadow: inset 1px 1px #808080, inset -1px -1px #fff;
+      }
+
+
+      /* Minimize and maximize buttons next to close (absolutely positioned
+         against the window, so they sit in the title bar) */
+      #widget-container main::before,
+      #widget-container main::after {
+        position: absolute;
+        top: 8px;
+        width: 22px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #c0c0c0;
+        color: #000;
+        font-size: 12px;
+        font-weight: 700;
+        box-shadow: var(--raised);
+      }
+      #widget-container main::before {
+        content: "\25A1";
+        right: 33px;
+      }
+      #widget-container main::after {
+        content: "_";
+        right: 55px;
+        align-items: flex-start;
+        line-height: 12px;
+      }
+
+      /* Dotted focus rectangle on the hovered method */
+      #widget-container a:hover .card-shadow > div > div > div > :first-child,
+      #widget-container a:focus-visible .card-shadow > div > div > div > :first-child {
+        outline: 1px dotted #000;
+        outline-offset: 1px;
+      }
+
+      /* "Most secure" as a yellow tooltip */
+      #widget-container li span.rounded-b-lg {
+        top: 8px !important;
+        right: 44px !important;
+        padding: 1px 6px;
+        border: 1px solid #000;
+        border-radius: 0 !important;
+        background: #ffffe1 !important;
+        color: #000 !important;
+        font-weight: 400;
+        box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.35);
+      }
+
+      /* Country picker as a Windows list box */
+      #widget-container button[aria-haspopup="listbox"] {
+        border: none !important;
+        border-radius: 0 !important;
+        background: #c0c0c0 !important;
+        box-shadow: var(--raised);
+        margin-left: 3px;
+        height: calc(100% - 6px) !important;
+      }
+      #widget-container div:has(> [role="listbox"]) {
+        border: none !important;
+        border-radius: 0 !important;
+        background: #fff !important;
+        box-shadow: inset -1px -1px #fff, inset 1px 1px #808080, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a, 2px 2px 0 rgba(0, 0, 0, 0.4);
+        padding: 2px;
+      }
+      #widget-container [role="option"] {
+        margin: 0 !important;
+        border-radius: 0 !important;
+        color: #000;
+      }
+      #widget-container [role="option"]:hover,
+      #widget-container [role="option"]:focus,
+      #widget-container [role="option"][aria-selected="true"] {
+        background: #000080 !important;
+        color: #fff !important;
+      }
+      #widget-container [role="listbox"]::-webkit-scrollbar {
+        width: 16px;
+      }
+      #widget-container [role="listbox"]::-webkit-scrollbar-track {
+        background: repeating-conic-gradient(#c0c0c0 0% 25%, #fff 0% 50%) 0 0 / 2px 2px;
+      }
+      #widget-container [role="listbox"]::-webkit-scrollbar-thumb {
+        background: #c0c0c0;
+        box-shadow: var(--raised);
+      }
+
+      /* Segmented progress bar instead of a spinner */
+      .Spinner--large {
+        width: 240px !important;
+        height: 22px !important;
+        border: none !important;
+        border-radius: 0 !important;
+        animation: none !important;
+        background: #fff;
+        box-shadow: inset -1px -1px #fff, inset 1px 1px #808080;
+        position: relative;
+      }
+      .Spinner--large::before {
+        content: "";
+        position: absolute;
+        top: 3px;
+        bottom: 3px;
+        left: 3px;
+        background: repeating-linear-gradient(90deg, #000080 0 10px, transparent 10px 12px);
+        animation: progress 2.4s steps(19) infinite;
+      }
+      @keyframes progress {
+        from { width: 0; }
+        to { width: 228px; }
+      }
+
+      /* Desktop icons */
+      .w98-icons {
+        position: fixed;
+        top: 16px;
+        left: 12px;
+        z-index: 20;
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+        color: #fff;
+        font-size: 14px;
+        text-align: center;
+      }
+      .w98-icons div {
+        width: 84px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+      }
+      .w98-icons svg {
+        width: 36px;
+        height: 36px;
+        image-rendering: pixelated;
+      }
+      .w98-icons span {
+        padding: 0 2px;
+      }
+      .w98-icons div:first-child span {
+        background: #000080;
+        outline: 1px dotted #fff;
+      }
+
+      #widget-container-footer > div {
+        color: #fff !important;
+      }
+      .w98-start:hover {
+        box-shadow: var(--pressed);
+      }
+
+      @media (max-width: 767px) {
+        .w98-icons { display: none; }
+      }
+
+      @media (max-width: 640px) {
+        .w98-task { display: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="w98-icons" aria-hidden="true">
+      <div>
+        <svg viewBox="0 0 16 16" shape-rendering="crispEdges"><rect x="1" y="1" width="14" height="10" fill="#c0c0c0"/><rect x="2" y="2" width="12" height="8" fill="#000080"/><rect x="3" y="3" width="6" height="1" fill="#1084d0"/><rect x="5" y="11" width="6" height="2" fill="#808080"/><rect x="3" y="13" width="10" height="2" fill="#c0c0c0"/><rect x="3" y="14" width="10" height="1" fill="#808080"/></svg>
+        <span>My Computer</span>
+      </div>
+      <div>
+        <svg viewBox="0 0 16 16" shape-rendering="crispEdges"><rect x="1" y="3" width="6" height="2" fill="#e6c34a"/><rect x="1" y="4" width="14" height="10" fill="#f5d76e"/><rect x="1" y="13" width="14" height="1" fill="#a07f1c"/><rect x="14" y="4" width="1" height="10" fill="#a07f1c"/><rect x="6" y="7" width="3" height="3" fill="#000080"/><rect x="9" y="8" width="4" height="1" fill="#000080"/><rect x="11" y="9" width="1" height="2" fill="#000080"/></svg>
+        <span>Passkeys</span>
+      </div>
+      <div>
+        <svg viewBox="0 0 16 16" shape-rendering="crispEdges"><rect x="3" y="2" width="10" height="2" fill="#808080"/><rect x="4" y="4" width="8" height="10" fill="#c0c0c0"/><rect x="4" y="13" width="8" height="1" fill="#808080"/><rect x="6" y="5" width="1" height="7" fill="#808080"/><rect x="9" y="5" width="1" height="7" fill="#808080"/></svg>
+        <span>Recycle Bin</span>
+      </div>
+    </div>
+    <div class="w98-taskbar" aria-hidden="true">
+      <span class="w98-start"><i></i>Start</span>
+      <span class="w98-task">Authsignal Verification</span>
+      <span class="w98-clock">11:59 AM</span>
+    </div>
+    <authsignal-widget></authsignal-widget>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+{
+  "name": "Geist",
+  "primaryColor": "#171717",
+  "colors": {
+    "buttonPrimaryText": "#FFFFFF",
+    "buttonPrimaryBorder": "#171717",
+    "buttonSecondaryText": "#171717",
+    "buttonSecondaryBackground": "#FFFFFF",
+    "buttonSecondaryBorder": "#EBEBEB",
+    "cardBackground": "#FFFFFF",
+    "cardBorder": "#EBEBEB",
+    "inputBackground": "#FFFFFF",
+    "inputBorder": "#EBEBEB",
+    "link": "#0068D6",
+    "headingText": "#171717",
+    "bodyText": "#666666",
+    "containerBackground": "#FFFFFF",
+    "containerBorder": "#EBEBEB",
+    "divider": "#EBEBEB",
+    "icon": "#171717",
+    "loader": "#171717",
+    "positive": "#0A7C3B",
+    "critical": "#DA2F35",
+    "information": "#0068D6",
+    "hover": "#F2F2F2",
+    "focus": "#0068D6"
+  },
+  "pageBackground": {
+    "backgroundColor": "#FAFAFA"
+  },
+  "typography": {
+    "text": {
+      "faces": [
+        { "url": "https://cdn.jsdelivr.net/npm/@fontsource-variable/geist@5/files/geist-latin-wght-normal.woff2", "weight": "100 900" }
+      ]
+    }
+  },
+  "container": {
+    "contentAlignment": "left",
+    "logoAlignment": "left",
+    "logoPosition": "inside",
+    "paddingHorizontal": 40,
+    "paddingVertical": 40
+  },
+  "borders": {
+    "buttonBorderRadius": 6,
+    "buttonBorderWidth": 1,
+    "cardBorderRadius": 8,
+    "cardBorderWidth": 1,
+    "inputBorderRadius": 6,
+    "inputBorderWidth": 1,
+    "containerBorderRadius": 12
+  },
+  "links": {
+    "underline": false
+  },
+  "shadows": {
+    "enabled": false
+  },
+  "darkMode": {
+    "primaryColor": "#EDEDED",
+    "colors": {
+      "buttonPrimaryText": "#0A0A0A",
+      "buttonPrimaryBorder": "#EDEDED",
+      "buttonSecondaryText": "#EDEDED",
+      "buttonSecondaryBackground": "#0A0A0A",
+      "buttonSecondaryBorder": "#2E2E2E",
+      "cardBackground": "#0A0A0A",
+      "cardBorder": "#2E2E2E",
+      "inputBackground": "#0A0A0A",
+      "inputBorder": "#2E2E2E",
+      "link": "#52A8FF",
+      "headingText": "#EDEDED",
+      "bodyText": "#A1A1A1",
+      "containerBackground": "#0A0A0A",
+      "containerBorder": "#1F1F1F",
+      "divider": "#1F1F1F",
+      "icon": "#EDEDED",
+      "loader": "#EDEDED",
+      "positive": "#62C073",
+      "critical": "#FF6166",
+      "information": "#52A8FF",
+      "hover": "#1A1A1A",
+      "focus": "#52A8FF"
+    },
+    "pageBackground": {
+      "backgroundColor": "#000000"
+    },
+    "borders": {
+      "buttonBorderRadius": 6,
+      "buttonBorderWidth": 1,
+      "cardBorderRadius": 8,
+      "cardBorderWidth": 1,
+      "inputBorderRadius": 6,
+      "inputBorderWidth": 1,
+      "containerBorderRadius": 12
+    },
+    "shadows": {
+      "enabled": false
+    }
+  }
+}

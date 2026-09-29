@@ -1,0 +1,102 @@
+{
+  "name": "Material",
+  "primaryColor": "#0B57D0",
+  "colors": {
+    "buttonPrimaryText": "#FFFFFF",
+    "buttonPrimaryBorder": "#0B57D0",
+    "buttonSecondaryText": "#0B57D0",
+    "buttonSecondaryBackground": "#FFFFFF",
+    "buttonSecondaryBorder": "#747775",
+    "cardBackground": "#FFFFFF",
+    "cardBorder": "#C4C7C5",
+    "inputBackground": "#FFFFFF",
+    "inputBorder": "#747775",
+    "link": "#0B57D0",
+    "headingText": "#1F1F1F",
+    "bodyText": "#444746",
+    "containerBackground": "#FFFFFF",
+    "containerBorder": "#FFFFFF",
+    "divider": "#C4C7C5",
+    "icon": "#444746",
+    "loader": "#0B57D0",
+    "positive": "#146C2E",
+    "critical": "#B3261E",
+    "information": "#0B57D0",
+    "hover": "#E9EEF6",
+    "focus": "#0B57D0"
+  },
+  "pageBackground": {
+    "backgroundColor": "#F0F4F9"
+  },
+  "typography": {
+    "text": {
+      "faces": [
+        { "url": "https://cdn.jsdelivr.net/npm/@fontsource-variable/roboto@5/files/roboto-latin-wght-normal.woff2", "weight": "100 900" }
+      ]
+    }
+  },
+  "container": {
+    "contentAlignment": "left",
+    "logoAlignment": "left",
+    "logoPosition": "inside",
+    "paddingHorizontal": 40,
+    "paddingVertical": 36
+  },
+  "borders": {
+    "buttonBorderRadius": 20,
+    "buttonBorderWidth": 1,
+    "cardBorderRadius": 12,
+    "cardBorderWidth": 1,
+    "inputBorderRadius": 4,
+    "inputBorderWidth": 1,
+    "containerBorderRadius": 28
+  },
+  "links": {
+    "underline": false
+  },
+  "shadows": {
+    "enabled": false
+  },
+  "darkMode": {
+    "primaryColor": "#A8C7FA",
+    "colors": {
+      "buttonPrimaryText": "#062E6F",
+      "buttonPrimaryBorder": "#A8C7FA",
+      "buttonSecondaryText": "#A8C7FA",
+      "buttonSecondaryBackground": "#1E1F20",
+      "buttonSecondaryBorder": "#8E918F",
+      "cardBackground": "#1E1F20",
+      "cardBorder": "#444746",
+      "inputBackground": "#1E1F20",
+      "inputBorder": "#8E918F",
+      "link": "#A8C7FA",
+      "headingText": "#E3E3E3",
+      "bodyText": "#C4C7C5",
+      "containerBackground": "#1E1F20",
+      "containerBorder": "#1E1F20",
+      "divider": "#444746",
+      "icon": "#C4C7C5",
+      "loader": "#A8C7FA",
+      "positive": "#6DD58C",
+      "critical": "#F2B8B5",
+      "information": "#A8C7FA",
+      "hover": "#282A2C",
+      "focus": "#A8C7FA"
+    },
+    "pageBackground": {
+      "backgroundColor": "#131314"
+    },
+    "borders": {
+      "buttonBorderRadius": 20,
+      "buttonBorderWidth": 1,
+      "cardBorderRadius": 12,
+      "cardBorderWidth": 1,
+      "inputBorderRadius": 4,
+      "inputBorderWidth": 1,
+      "containerBorderRadius": 28
+    },
+    "shadows": {
+      "enabled": false
+    }
+  }
+}

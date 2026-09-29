@@ -1,0 +1,221 @@
+<html>
+  <head>
+    <authsignal-head></authsignal-head>
+    <style>
+      /* Page: hot pink with a halftone dot pattern */
+      html,
+      body {
+        min-height: 100%;
+        background:
+          radial-gradient(rgba(0, 0, 0, 0.14) 1.5px, transparent 1.6px) 0 0 / 18px 18px,
+          var(--page-background-color);
+      }
+      /* The widget's wrapper paints a flat page color; let the dots show through */
+      .bg-background {
+        background-color: transparent !important;
+      }
+
+      /* Scrolling ticker across the top */
+      .ticker {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 20;
+        overflow: hidden;
+        white-space: nowrap;
+        border-bottom: 3px solid #000;
+        background: #000;
+        color: #ffd23f;
+        font-weight: 700;
+        font-size: 15px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 8px 0;
+      }
+      .ticker div {
+        display: inline-block;
+        animation: ticker 28s linear infinite;
+      }
+      .ticker span {
+        padding: 0 18px;
+      }
+      .ticker span:nth-child(even) {
+        color: #ff90e8;
+      }
+      @keyframes ticker {
+        to { transform: translateX(-50%); }
+      }
+
+      /* Thick outlines and hard offset shadows */
+      .Container {
+        border-width: 3px !important;
+        box-shadow: 12px 12px 0 #000 !important;
+      }
+      #widget-container h1 {
+        font-size: 2.4rem;
+        line-height: 1.05;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+      }
+      #widget-container h1::after {
+        content: "";
+        display: block;
+        width: 72px;
+        height: 10px;
+        margin-top: 12px;
+        background: #ffd23f;
+        border: 3px solid #000;
+      }
+
+      /* Method cards, each in its own color */
+      #widget-container ul {
+        gap: 18px;
+      }
+      #widget-container .card-shadow {
+        box-shadow: 6px 6px 0 #000;
+        transition: transform 0.1s, box-shadow 0.1s;
+      }
+      #widget-container .card-shadow > div {
+        box-shadow: 0 0 0 3px #000 !important;
+        padding: 16px 18px;
+      }
+      #widget-container li:nth-child(4n + 1) .card-shadow > div { background: #b8f2e6 !important; }
+      #widget-container li:nth-child(4n + 2) .card-shadow > div { background: #ffd23f !important; }
+      #widget-container li:nth-child(4n + 3) .card-shadow > div { background: #c3b1ff !important; }
+      #widget-container li:nth-child(4n + 4) .card-shadow > div { background: #ffb3a7 !important; }
+      #widget-container a:hover .card-shadow {
+        transform: translate(-3px, -3px);
+        box-shadow: 9px 9px 0 #000;
+      }
+      #widget-container a:active .card-shadow {
+        transform: translate(4px, 4px);
+        box-shadow: 2px 2px 0 #000;
+      }
+      #widget-container .card-shadow > div > div > div > :first-child {
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+
+      /* "Most secure" as a tilted sticker */
+      #widget-container li span.rounded-b-lg {
+        top: -12px !important;
+        right: 18px !important;
+        z-index: 2;
+        padding: 3px 10px;
+        transform: rotate(4deg);
+        border: 3px solid #000;
+        border-radius: 0 !important;
+        background: #fff !important;
+        color: #000 !important;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        box-shadow: 3px 3px 0 #000;
+      }
+
+      /* Inputs */
+      #widget-container input {
+        border-radius: 0 !important;
+        height: 56px;
+        font-size: 1.1rem;
+        box-shadow: 5px 5px 0 #000;
+      }
+      #widget-container input:focus {
+        outline: none;
+        background: #fffbe6 !important;
+        box-shadow: 5px 5px 0 #0047ff;
+      }
+      #widget-container button[aria-haspopup="listbox"] {
+        border: none !important;
+        background: transparent !important;
+      }
+      #widget-container div:has(> [role="listbox"]) {
+        border: 3px solid #000 !important;
+        border-radius: 0 !important;
+        box-shadow: 8px 8px 0 #000;
+      }
+      #widget-container [role="option"] {
+        border-radius: 0 !important;
+      }
+      #widget-container [role="option"]:hover,
+      #widget-container [role="option"]:focus {
+        background: #ffd23f !important;
+      }
+
+      /* Buttons */
+      .Button {
+        border-radius: 0 !important;
+        font-weight: 700;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        padding: 16px 24px;
+        box-shadow: 5px 5px 0 #000;
+        transition: transform 0.08s, box-shadow 0.08s;
+      }
+      .Button--primary::after {
+        content: "\2192";
+        margin-left: 10px;
+        transition: transform 0.15s;
+      }
+      .Button:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 7px 7px 0 #000;
+      }
+      .Button:hover::after {
+        transform: translateX(4px);
+      }
+      .Button:active {
+        transform: translate(5px, 5px);
+        box-shadow: none;
+      }
+
+      /* Links with a thick underline that fills in on hover */
+      #widget-container a.text-link,
+      #widget-container .HeaderBandSide button {
+        color: #000;
+        font-weight: 700;
+        text-decoration-thickness: 3px;
+        text-underline-offset: 4px;
+      }
+      #widget-container a.text-link:hover,
+      #widget-container .HeaderBandSide button:hover {
+        background: #ffd23f;
+      }
+
+      #widget-container-footer > div {
+        color: #000 !important;
+        font-weight: 700;
+      }
+
+      /* A square that flips instead of a spinner */
+      .Spinner--large {
+        border: 3px solid #000 !important;
+        border-radius: 0 !important;
+        width: 48px !important;
+        height: 48px !important;
+        background: #ffd23f;
+        box-shadow: 5px 5px 0 #000;
+        animation: flip 1s steps(4) infinite !important;
+      }
+      @keyframes flip {
+        to { transform: rotate(360deg); }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .ticker div,
+        .Spinner--large { animation: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ticker" aria-hidden="true">
+      <div>
+        <span>No passwords</span><span>Passkeys</span><span>Phishing resistant</span><span>MFA</span><span>Secure by default</span><span>No passwords</span><span>Passkeys</span><span>Phishing resistant</span><span>MFA</span><span>Secure by default</span>
+        <span>No passwords</span><span>Passkeys</span><span>Phishing resistant</span><span>MFA</span><span>Secure by default</span><span>No passwords</span><span>Passkeys</span><span>Phishing resistant</span><span>MFA</span><span>Secure by default</span>
+      </div>
+    </div>
+    <authsignal-widget></authsignal-widget>
+  </body>
+</html>

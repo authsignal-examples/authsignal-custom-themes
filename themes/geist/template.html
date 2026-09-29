@@ -1,0 +1,217 @@
+<html>
+  <head>
+    <authsignal-head></authsignal-head>
+    <style>
+      @font-face {
+        font-family: "Geist Mono";
+        src: url(https://cdn.jsdelivr.net/npm/@fontsource-variable/geist-mono@5/files/geist-mono-latin-wght-normal.woff2) format("woff2");
+        font-weight: 100 900;
+        font-display: swap;
+      }
+
+      :root {
+        --ring: rgba(0, 0, 0, 0.08);
+        --muted: #8f8f8f;
+        --badge-bg: #e9f4ff;
+        --badge-fg: #0068d6;
+        --focus: rgba(0, 104, 214, 0.24);
+        --spot: rgba(0, 112, 243, 0.1);
+        --kbd: rgba(255, 255, 255, 0.16);
+        --lines: rgba(0, 0, 0, 0.05);
+      }
+      :root.dark {
+        --ring: rgba(255, 255, 255, 0.1);
+        --muted: #707070;
+        --badge-bg: #0f1f33;
+        --badge-fg: #52a8ff;
+        --focus: rgba(82, 168, 255, 0.3);
+        --spot: rgba(82, 168, 255, 0.12);
+        --kbd: rgba(0, 0, 0, 0.12);
+        --lines: rgba(255, 255, 255, 0.06);
+      }
+
+      /* Page: a faint grid under a soft spotlight */
+      html,
+      body {
+        min-height: 100%;
+        background-color: var(--page-background-color);
+      }
+      .grid {
+        position: fixed;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background:
+          radial-gradient(ellipse 60% 40% at 50% 0%, var(--spot), transparent 70%),
+          linear-gradient(to right, var(--lines) 1px, transparent 1px) 0 0 / 64px 64px,
+          linear-gradient(to bottom, var(--lines) 1px, transparent 1px) 0 0 / 64px 64px;
+        mask-image: radial-gradient(ellipse at 50% 30%, #000 30%, transparent 80%);
+        -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000 30%, transparent 80%);
+      }
+
+      /* Card edged with a ring and a very soft shadow, not a border */
+      #widget-container {
+        border: none !important;
+        box-shadow: 0 0 0 1px var(--ring), 0 2px 2px rgba(0, 0, 0, 0.04), 0 8px 16px -4px rgba(0, 0, 0, 0.06) !important;
+      }
+
+      /* Header: logo left, Quit as a small bordered button */
+      #widget-container .HeaderBandSide button {
+        padding: 4px 10px;
+        border-radius: 6px;
+        box-shadow: 0 0 0 1px var(--ring);
+        color: var(--heading-text-color);
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+      }
+      #widget-container .HeaderBandSide button:hover {
+        background: var(--hover-color);
+      }
+
+      #widget-container h1 {
+        font-size: 1.75rem;
+        line-height: 2.25rem;
+        font-weight: 600;
+        letter-spacing: -0.04em;
+      }
+      #widget-container main > p,
+      #widget-container form > p {
+        font-size: 14px;
+      }
+
+      /* Methods as compact bordered rows */
+      #widget-container ul {
+        gap: 8px;
+      }
+      #widget-container .card-shadow > div {
+        padding: 10px 14px;
+        border-radius: 8px !important;
+        box-shadow: 0 0 0 1px var(--ring) !important;
+        transition: background-color 0.15s, box-shadow 0.15s;
+      }
+      #widget-container a:hover .card-shadow > div {
+        background: var(--hover-color) !important;
+        box-shadow: 0 0 0 1px var(--muted) !important;
+      }
+      /* The icons have no viewBox, so scale them rather than resize them */
+      #widget-container .card-shadow > div > div > svg {
+        transform: scale(0.6);
+        margin: -8px;
+      }
+      #widget-container .card-shadow > div > div > div > :first-child {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--heading-text-color);
+      }
+      #widget-container .card-shadow > div > div > div > :last-child {
+        font-size: 13px;
+      }
+      #widget-container .card-shadow > div > svg {
+        color: var(--muted);
+        width: 16px;
+        height: 16px;
+      }
+      #widget-container li span.rounded-b-lg {
+        top: 50% !important;
+        right: 42px !important;
+        transform: translateY(-50%);
+        padding: 1px 8px;
+        border-radius: 999px !important;
+        background: var(--badge-bg) !important;
+        color: var(--badge-fg) !important;
+        font-size: 11px;
+        font-weight: 500;
+      }
+
+      /* Inputs */
+      #widget-container input {
+        height: 40px;
+        font-size: 14px;
+        border-radius: 6px !important;
+        transition: box-shadow 0.15s, border-color 0.15s;
+      }
+      #widget-container input:hover {
+        border-color: var(--muted) !important;
+      }
+      #widget-container input:focus {
+        outline: none;
+        border-color: var(--focus-color) !important;
+        box-shadow: 0 0 0 3px var(--focus);
+      }
+      #widget-container input[inputmode="numeric"],
+      #widget-container input[autocomplete="one-time-code"] {
+        font-family: "Geist Mono", ui-monospace, monospace;
+      }
+      #widget-container button[aria-haspopup="listbox"] {
+        border: none !important;
+        background: transparent !important;
+      }
+      #widget-container div:has(> [role="listbox"]) {
+        border: none !important;
+        border-radius: 12px !important;
+        background: var(--container-background-color) !important;
+        box-shadow: 0 0 0 1px var(--ring), 0 4px 8px -4px rgba(0, 0, 0, 0.08), 0 16px 24px -8px rgba(0, 0, 0, 0.1);
+        font-size: 14px;
+      }
+      #widget-container [role="option"] {
+        border-radius: 6px !important;
+      }
+      #widget-container [role="option"]:hover,
+      #widget-container [role="option"]:focus {
+        background: var(--hover-color) !important;
+      }
+
+      /* Black button with a return-key hint */
+      .Button {
+        height: 40px;
+        padding: 0 14px;
+        font-size: 14px;
+        font-weight: 500;
+        transition: opacity 0.15s;
+      }
+      .Button--primary:hover {
+        opacity: 0.86;
+      }
+      .Button--primary::after {
+        content: "\21B5";
+        margin-left: 8px;
+        padding: 0 5px;
+        border-radius: 4px;
+        background: var(--kbd);
+        font-family: "Geist Mono", ui-monospace, monospace;
+        font-size: 12px;
+        line-height: 18px;
+      }
+
+      #widget-container a.text-link {
+        font-size: 14px;
+        text-decoration: none;
+      }
+      #widget-container a.text-link:hover {
+        text-decoration: underline;
+      }
+
+      /* Footer in mono caps */
+      #widget-container-footer > div {
+        font-family: "Geist Mono", ui-monospace, monospace;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 10px;
+      }
+
+      /* Thin ring spinner */
+      .Spinner--large {
+        width: 28px !important;
+        height: 28px !important;
+        border-width: 2px !important;
+        border-color: var(--ring) !important;
+        border-top-color: var(--heading-text-color) !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid" aria-hidden="true"></div>
+    <authsignal-widget></authsignal-widget>
+  </body>
+</html>
