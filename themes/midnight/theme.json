@@ -1,5 +1,5 @@
 {
-  "name": "Geist",
+  "name": "Midnight",
   "primaryColor": "#171717",
   "colors": {
     "buttonPrimaryText": "#FFFFFF",
@@ -11,7 +11,7 @@
     "cardBorder": "#EBEBEB",
     "inputBackground": "#FFFFFF",
     "inputBorder": "#EBEBEB",
-    "link": "#0068D6",
+    "link": "#0A7F5A",
     "headingText": "#171717",
     "bodyText": "#666666",
     "containerBackground": "#FFFFFF",
@@ -19,11 +19,11 @@
     "divider": "#EBEBEB",
     "icon": "#171717",
     "loader": "#171717",
-    "positive": "#0A7C3B",
+    "positive": "#0A7F5A",
     "critical": "#DA2F35",
-    "information": "#0068D6",
+    "information": "#0A7F5A",
     "hover": "#F2F2F2",
-    "focus": "#0068D6"
+    "focus": "#0A7F5A"
   },
   "pageBackground": {
     "backgroundColor": "#FAFAFA"
@@ -31,7 +31,10 @@
   "typography": {
     "text": {
       "faces": [
-        { "url": "https://cdn.jsdelivr.net/npm/@fontsource-variable/geist@5/files/geist-latin-wght-normal.woff2", "weight": "100 900" }
+        {
+          "url": "https://cdn.jsdelivr.net/npm/@fontsource-variable/inter@5/files/inter-latin-wght-normal.woff2",
+          "weight": "100 900"
+        }
       ]
     }
   },
@@ -69,7 +72,7 @@
       "cardBorder": "#2E2E2E",
       "inputBackground": "#0A0A0A",
       "inputBorder": "#2E2E2E",
-      "link": "#52A8FF",
+      "link": "#3DD68C",
       "headingText": "#EDEDED",
       "bodyText": "#A1A1A1",
       "containerBackground": "#0A0A0A",
@@ -77,11 +80,11 @@
       "divider": "#1F1F1F",
       "icon": "#EDEDED",
       "loader": "#EDEDED",
-      "positive": "#62C073",
+      "positive": "#3DD68C",
       "critical": "#FF6166",
-      "information": "#52A8FF",
+      "information": "#3DD68C",
       "hover": "#1A1A1A",
-      "focus": "#52A8FF"
+      "focus": "#3DD68C"
     },
     "pageBackground": {
       "backgroundColor": "#000000"

@@ -1,0 +1,107 @@
+{
+  "name": "Split",
+  "primaryColor": "#0F4C42",
+  "colors": {
+    "buttonPrimaryText": "#FFFFFF",
+    "buttonPrimaryBorder": "#0F4C42",
+    "buttonSecondaryText": "#0F4C42",
+    "buttonSecondaryBackground": "#FFFFFF",
+    "buttonSecondaryBorder": "#C9D6D1",
+    "cardBackground": "#FFFFFF",
+    "cardBorder": "#D6E0DC",
+    "inputBackground": "#FFFFFF",
+    "inputBorder": "#8A9A94",
+    "link": "#0F6B5C",
+    "headingText": "#13201C",
+    "bodyText": "#3F4D48",
+    "containerBackground": "#FFFFFF",
+    "containerBorder": "#FFFFFF",
+    "divider": "#D6E0DC",
+    "icon": "#0F4C42",
+    "loader": "#0F4C42",
+    "positive": "#1F7A4D",
+    "critical": "#B42318",
+    "information": "#0F6B5C",
+    "hover": "#F0F5F3",
+    "focus": "#0F6B5C"
+  },
+  "pageBackground": {
+    "backgroundColor": "#E9EFEC"
+  },
+  "typography": {
+    "text": {
+      "faces": [
+        { "url": "https://cdn.jsdelivr.net/npm/@fontsource-variable/plus-jakarta-sans@5/files/plus-jakarta-sans-latin-wght-normal.woff2", "weight": "200 800" }
+      ]
+    },
+    "display": {
+      "faces": [
+        { "url": "https://cdn.jsdelivr.net/npm/@fontsource-variable/fraunces@5/files/fraunces-latin-wght-normal.woff2", "weight": "100 900" }
+      ]
+    }
+  },
+  "container": {
+    "contentAlignment": "left",
+    "logoAlignment": "left",
+    "logoPosition": "inside",
+    "paddingHorizontal": 48,
+    "paddingVertical": 40
+  },
+  "borders": {
+    "buttonBorderRadius": 12,
+    "buttonBorderWidth": 1,
+    "cardBorderRadius": 14,
+    "cardBorderWidth": 1,
+    "inputBorderRadius": 10,
+    "inputBorderWidth": 1,
+    "containerBorderRadius": 24
+  },
+  "links": {
+    "underline": false
+  },
+  "shadows": {
+    "enabled": false
+  },
+  "darkMode": {
+    "primaryColor": "#7FD1BC",
+    "colors": {
+      "buttonPrimaryText": "#06231D",
+      "buttonPrimaryBorder": "#7FD1BC",
+      "buttonSecondaryText": "#7FD1BC",
+      "buttonSecondaryBackground": "#121A17",
+      "buttonSecondaryBorder": "#2E3D38",
+      "cardBackground": "#121A17",
+      "cardBorder": "#24312D",
+      "inputBackground": "#0E1513",
+      "inputBorder": "#4B5A55",
+      "link": "#7FD1BC",
+      "headingText": "#E8F0ED",
+      "bodyText": "#A9B8B3",
+      "containerBackground": "#121A17",
+      "containerBorder": "#121A17",
+      "divider": "#24312D",
+      "icon": "#9FE0CE",
+      "loader": "#7FD1BC",
+      "positive": "#5FD39A",
+      "critical": "#F97066",
+      "information": "#7FD1BC",
+      "hover": "#18221F",
+      "focus": "#7FD1BC"
+    },
+    "pageBackground": {
+      "backgroundColor": "#0B1210"
+    },
+    "borders": {
+      "buttonBorderRadius": 12,
+      "buttonBorderWidth": 1,
+      "cardBorderRadius": 14,
+      "cardBorderWidth": 1,
+      "inputBorderRadius": 10,
+      "inputBorderWidth": 1,
+      "containerBorderRadius": 24
+    },
+    "shadows": {
+      "enabled": false
+    }
+  }
+}

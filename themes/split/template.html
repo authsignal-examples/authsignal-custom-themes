@@ -1,0 +1,196 @@
+<html>
+  <head>
+    <authsignal-head></authsignal-head>
+    <style>
+      :root {
+        --panel: #0f4c42;
+        --on-panel: #f2f7f5;
+        --on-panel-muted: rgba(242, 247, 245, 0.72);
+        --ring: rgba(255, 255, 255, 0.07);
+        --tonal: #dcebe6;
+        --on-tonal: #0f4c42;
+        --chip: #fce7b8;
+        --on-chip: #7a4a00;
+        --focus-glow: rgba(15, 107, 92, 0.18);
+      }
+      :root.dark {
+        --panel: #14453c;
+        --on-panel: #e8f0ed;
+        --on-panel-muted: rgba(232, 240, 237, 0.7);
+        --ring: rgba(255, 255, 255, 0.05);
+        --tonal: #173a33;
+        --on-tonal: #9fe0ce;
+        --chip: #3a2a0a;
+        --on-chip: #f7d58a;
+        --focus-glow: rgba(127, 209, 188, 0.2);
+      }
+
+      /* Custom templates don't paint the page itself, so fill it with the theme's page color */
+      html,
+      body {
+        min-height: 100%;
+        background-color: var(--page-background-color);
+      }
+
+      #widget-container {
+        box-shadow: 0 1px 2px rgba(16, 32, 28, 0.06), 0 24px 48px -24px rgba(16, 32, 28, 0.25) !important;
+      }
+
+      #widget-container h1 {
+        font-weight: 600;
+        font-size: 2.4rem;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+      }
+
+      /* On wide screens: a colored panel on the left for the heading, the form on the right */
+      @media (min-width: 900px) {
+        div:has(> #widget-container),
+        #widget-container {
+          max-width: 1040px !important;
+          width: 1040px;
+        }
+        #widget-container {
+          min-height: 520px;
+          background:
+            radial-gradient(circle at 0 100%, transparent 0 90px, var(--ring) 91px 92px, transparent 93px 150px, var(--ring) 151px 152px, transparent 153px 210px, var(--ring) 211px 212px, transparent 213px) 0 0 / 456px 100% no-repeat,
+            linear-gradient(90deg, var(--panel) 0 456px, var(--container-background-color) 456px) !important;
+        }
+        #widget-container main {
+          display: grid;
+          grid-template-columns: 360px 1fr;
+          column-gap: 96px;
+          row-gap: 16px;
+          align-items: start;
+        }
+        #widget-container main > * {
+          grid-column: 2;
+        }
+        #widget-container main > h1 {
+          grid-column: 1;
+          grid-row: 1;
+          color: var(--on-panel);
+        }
+        #widget-container main > h1 + p {
+          grid-column: 1;
+          grid-row: 2;
+          color: var(--on-panel-muted);
+        }
+        #widget-container main > ul,
+        #widget-container main > form,
+        #widget-container main > h1 + p + ul {
+          grid-row: 1 / span 3;
+        }
+        /* The logo and back arrow sit on the panel, so they turn light */
+        #widget-container [class*="logo-inside"] {
+          filter: brightness(0) invert(1);
+          opacity: 0.92;
+        }
+        #widget-container .HeaderBandSide:first-child button,
+        #widget-container .HeaderBandSide:first-child a {
+          color: var(--on-panel);
+        }
+      }
+
+      /* Sign-in methods as one list, with a tinted circle behind each icon */
+      #widget-container ul {
+        gap: 0;
+        border: 1px solid var(--card-border-color);
+        border-radius: 14px;
+        overflow: hidden;
+      }
+      #widget-container ul li + li {
+        border-top: 1px solid var(--card-border-color);
+      }
+      #widget-container .card-shadow,
+      #widget-container .card-shadow > div,
+      #widget-container ul a {
+        border-radius: 0 !important;
+        box-shadow: none !important;
+      }
+      #widget-container .card-shadow > div {
+        padding: 16px 18px;
+        transition: background-color 0.15s;
+      }
+      #widget-container a:hover .card-shadow > div {
+        background: var(--hover-color) !important;
+      }
+      #widget-container .card-shadow > div > div {
+        gap: 16px;
+      }
+      /* The icons have no viewBox, so they stay 40px; the circle grows with a spread shadow */
+      #widget-container .card-shadow > div > div > svg {
+        margin: 4px;
+        border-radius: 50%;
+        background: var(--tonal);
+        box-shadow: 0 0 0 4px var(--tonal);
+        color: var(--on-tonal) !important;
+        --icon-color: var(--on-tonal);
+      }
+      #widget-container .card-shadow > div > div > div > :first-child {
+        font-weight: 600;
+        color: var(--heading-text-color);
+      }
+      #widget-container li span.rounded-b-lg {
+        top: 14px !important;
+        right: 48px !important;
+        padding: 2px 10px;
+        border-radius: 999px !important;
+        background: var(--chip) !important;
+        color: var(--on-chip) !important;
+        font-weight: 600;
+      }
+
+      /* Inputs */
+      #widget-container input {
+        height: 52px;
+      }
+      #widget-container input:focus {
+        outline: none;
+        border-color: var(--focus-color) !important;
+        box-shadow: 0 0 0 4px var(--focus-glow);
+      }
+      #widget-container button[aria-haspopup="listbox"] {
+        border: none !important;
+        background: transparent !important;
+      }
+      #widget-container div:has(> [role="listbox"]) {
+        border: 1px solid var(--card-border-color) !important;
+        border-radius: 12px !important;
+        background: var(--container-background-color) !important;
+        box-shadow: 0 16px 32px -16px rgba(16, 32, 28, 0.3);
+      }
+      #widget-container [role="option"] {
+        border-radius: 8px !important;
+      }
+      #widget-container [role="option"]:hover,
+      #widget-container [role="option"]:focus {
+        background: var(--hover-color) !important;
+      }
+
+      .Button {
+        height: 48px;
+        font-weight: 600;
+        transition: transform 0.15s, box-shadow 0.15s;
+      }
+      .Button--primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 8px 16px -8px rgba(15, 76, 66, 0.6);
+      }
+
+      #widget-container a.text-link,
+      #widget-container .HeaderBandSide button {
+        font-weight: 600;
+      }
+
+      .Spinner--large {
+        width: 40px !important;
+        height: 40px !important;
+        border-width: 3px !important;
+      }
+    </style>
+  </head>
+  <body>
+    <authsignal-widget></authsignal-widget>
+  </body>
+</html>

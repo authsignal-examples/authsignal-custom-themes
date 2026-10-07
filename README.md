@@ -2,12 +2,12 @@
 
 Four example themes for [Authsignal's pre-built UI](https://docs.authsignal.com/implementation-options/prebuilt-ui/overview), applied with the Management API.
 
-![The four themes: Windows 98, a dark Vercel-inspired theme, a pink brutalist theme and a Google-inspired theme](screenshots/all-four.png)
+![The four themes: Windows 98, Midnight in dark mode, Brutalist and Split](screenshots/all-four.png)
 
 | Theme | What it shows |
 | --- | --- |
-| [Material](themes/material) | A Google-inspired two-column layout built with CSS grid |
-| [Geist](themes/geist) | A Vercel-inspired theme with a full dark mode |
+| [Split](themes/split) | A two-column layout with a colored side panel, built with CSS grid |
+| [Midnight](themes/midnight) | A monochrome theme designed dark first, with a full dark mode |
 | [Brutalist](themes/brutalist) | Mostly design tokens, plus a short template for hard shadows |
 | [Windows 98](themes/win98) | Custom HTML around the widget: a taskbar and desktop icons |
 
@@ -21,7 +21,7 @@ Use a test tenant, since a theme change applies to everyone on it.
 2. Apply a theme. The script backs up your current theme to `backups/` first.
 
    ```bash
-   ./show-theme.sh themes/geist
+   ./show-theme.sh themes/midnight
    ```
 
 3. Preview it:

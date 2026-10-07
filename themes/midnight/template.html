@@ -3,8 +3,8 @@
     <authsignal-head></authsignal-head>
     <style>
       @font-face {
-        font-family: "Geist Mono";
-        src: url(https://cdn.jsdelivr.net/npm/@fontsource-variable/geist-mono@5/files/geist-mono-latin-wght-normal.woff2) format("woff2");
+        font-family: "JetBrains Mono";
+        src: url(https://cdn.jsdelivr.net/npm/@fontsource-variable/jetbrains-mono@5/files/jetbrains-mono-latin-wght-normal.woff2) format("woff2");
         font-weight: 100 900;
         font-display: swap;
       }
@@ -12,20 +12,20 @@
       :root {
         --ring: rgba(0, 0, 0, 0.08);
         --muted: #8f8f8f;
-        --badge-bg: #e9f4ff;
-        --badge-fg: #0068d6;
-        --focus: rgba(0, 104, 214, 0.24);
-        --spot: rgba(0, 112, 243, 0.1);
+        --badge-bg: #e3f8ee;
+        --badge-fg: #0a7f5a;
+        --focus: rgba(10, 127, 90, 0.22);
+        --spot: rgba(61, 214, 140, 0.1);
         --kbd: rgba(255, 255, 255, 0.16);
         --lines: rgba(0, 0, 0, 0.05);
       }
       :root.dark {
         --ring: rgba(255, 255, 255, 0.1);
         --muted: #707070;
-        --badge-bg: #0f1f33;
-        --badge-fg: #52a8ff;
-        --focus: rgba(82, 168, 255, 0.3);
-        --spot: rgba(82, 168, 255, 0.12);
+        --badge-bg: #0e2a1f;
+        --badge-fg: #3dd68c;
+        --focus: rgba(61, 214, 140, 0.3);
+        --spot: rgba(61, 214, 140, 0.12);
         --kbd: rgba(0, 0, 0, 0.12);
         --lines: rgba(255, 255, 255, 0.06);
       }
@@ -67,6 +67,12 @@
       }
       #widget-container .HeaderBandSide button:hover {
         background: var(--hover-color);
+      }
+
+      /* The default logo is dark; lighten it in dark mode */
+      :root.dark #widget-container [class*="logo-inside"] {
+        filter: brightness(0) invert(1);
+        opacity: 0.9;
       }
 
       #widget-container h1 {
@@ -141,7 +147,7 @@
       }
       #widget-container input[inputmode="numeric"],
       #widget-container input[autocomplete="one-time-code"] {
-        font-family: "Geist Mono", ui-monospace, monospace;
+        font-family: "JetBrains Mono", ui-monospace, monospace;
       }
       #widget-container button[aria-haspopup="listbox"] {
         border: none !important;
@@ -179,7 +185,7 @@
         padding: 0 5px;
         border-radius: 4px;
         background: var(--kbd);
-        font-family: "Geist Mono", ui-monospace, monospace;
+        font-family: "JetBrains Mono", ui-monospace, monospace;
         font-size: 12px;
         line-height: 18px;
       }
@@ -194,7 +200,7 @@
 
       /* Footer in mono caps */
       #widget-container-footer > div {
-        font-family: "Geist Mono", ui-monospace, monospace;
+        font-family: "JetBrains Mono", ui-monospace, monospace;
         text-transform: uppercase;
         letter-spacing: 0.08em;
         font-size: 10px;
